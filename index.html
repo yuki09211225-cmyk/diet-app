@@ -1,0 +1,1976 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Diet</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:#fafafa;color:#111;max-width:640px;margin:0 auto;-webkit-font-smoothing:antialiased}.app{min-height:100vh;background:#fff}.upload{padding:48px 24px;max-width:480px;margin:0 auto}.upload h1{font-size:24px;font-weight:600;margin-bottom:8px}.upload .sub{font-size:14px;color:#6B7280;margin-bottom:40px}.file-box{background:#fafafa;border:1px solid #e5e7eb;border-radius:8px;padding:24px;margin-bottom:12px;cursor:pointer;transition:all .15s}.file-box:hover{border-color:#d1d5db;background:#f5f5f5}.file-box.sel{border-color:#2563eb;background:#eff6ff}.file-icon{font-size:24px;margin-bottom:8px}.file-label{font-size:14px;font-weight:500;margin-bottom:4px}.file-status{font-size:13px;color:#6B7280}.file-status.ok{color:#10b981}input[type=file]{display:none}.btn{background:#111;color:#fff;border:none;padding:12px 24px;font-size:14px;font-weight:500;border-radius:6px;cursor:pointer;width:100%;transition:background .15s}.btn:hover{background:#000}.btn:disabled{background:#d1d5db;cursor:not-allowed}.header{background:#fff;padding:16px 20px;border-bottom:1px solid #e5e7eb;position:sticky;top:0;z-index:100}.hdr-row{display:flex;align-items:center;justify-content:space-between}.back{background:none;border:none;font-size:20px;cursor:pointer;color:#6B7280;padding:4px}.title{font-size:16px;font-weight:600}.date{font-size:13px;color:#6B7280;margin-top:2px}.set-btn{background:none;border:none;font-size:20px;cursor:pointer;color:#6B7280;padding:4px}.nav{display:flex;background:#fff;border-bottom:1px solid #e5e7eb;position:sticky;top:57px;z-index:99;padding:0 20px}.tab{flex:1;padding:12px 0;background:none;border:none;border-bottom:2px solid transparent;font-size:14px;font-weight:500;color:#6B7280;cursor:pointer;transition:color .15s}.tab.act{color:#111;border-bottom-color:#111}.dash{padding:24px 20px}.sec{margin-bottom:32px}.sec-t{font-size:13px;font-weight:600;color:#6B7280;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:12px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px}.card{background:#fafafa;border:1px solid #e5e7eb;border-radius:8px;padding:16px;cursor:pointer;transition:all .15s}.card:hover{background:#f5f5f5}.card-l{font-size:13px;color:#6B7280;margin-bottom:8px}.card-v{font-size:24px;font-weight:600}.nut{background:#fafafa;border:1px solid #e5e7eb;border-radius:8px;padding:16px;margin-bottom:12px}.nut-h{font-size:14px;font-weight:500;margin-bottom:12px}.nut-r{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}.nut-c{font-size:20px;font-weight:600}.nut-t{font-size:13px;color:#6B7280}.bar{height:6px;background:#e5e7eb;border-radius:3px;overflow:hidden;margin-bottom:6px}.fill{height:100%;border-radius:3px;transition:width .3s}.low{background:#f59e0b}.good{background:#10b981}.pct{font-size:12px;color:#9CA3AF}.add{background:#111;color:#fff;border:none;padding:12px;font-size:14px;font-weight:500;border-radius:6px;cursor:pointer;width:100%;transition:background .15s}.add:hover{background:#000}.meals{margin-bottom:20px}.meal{background:#fafafa;border:1px solid #e5e7eb;border-radius:8px;padding:16px;margin-bottom:12px}.meal-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}.meal-n{font-size:14px;font-weight:500;flex:1}.meal-m{font-size:13px;color:#6B7280;margin-bottom:6px}.meal-nu{font-size:13px;color:#6B7280}.del{background:none;border:1px solid #e5e7eb;color:#6B7280;padding:6px 12px;border-radius:4px;font-size:12px;font-weight:500;cursor:pointer;transition:all .15s}.del:hover{border-color:#ef4444;color:#ef4444}.empty{text-align:center;padding:80px 20px;color:#9CA3AF}.empty-i{font-size:48px;margin-bottom:12px;opacity:0.5}.empty-t{font-size:14px;line-height:1.5;color:#6B7280}.graph{padding:24px 20px}.per{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}.per-btn{flex:1;min-width:60px;padding:8px 12px;background:#fafafa;border:1px solid #e5e7eb;border-radius:6px;font-size:13px;font-weight:500;color:#6B7280;cursor:pointer;transition:all .15s}.per-btn:hover{background:#f5f5f5}.per-btn.act{background:#111;color:#fff;border-color:#111}.g-card{background:#fafafa;border:1px solid #e5e7eb;border-radius:8px;padding:20px;margin-bottom:16px}.g-title{font-size:14px;font-weight:500;margin-bottom:16px}.g-con{height:200px;position:relative}.g-sum{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:16px;padding-top:16px;border-top:1px solid #e5e7eb}.sum-i{text-align:center}.sum-l{font-size:12px;color:#9CA3AF;margin-bottom:4px}.sum-v{font-size:18px;font-weight:600}.modal{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.4);display:flex;align-items:flex-end;justify-content:center;z-index:1000;animation:fadeIn .2s}@keyframes fadeIn{from{opacity:0}to{opacity:1}}.m-con{background:#fff;border-radius:16px 16px 0 0;width:100%;max-width:640px;max-height:90vh;overflow-y:auto;animation:slideUp .25s}@keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}.m-h{padding:20px 20px 16px;border-bottom:1px solid #e5e7eb;position:sticky;top:0;background:#fff;z-index:10;display:flex;justify-content:space-between;align-items:center}.m-title{font-size:16px;font-weight:600}.close{background:none;border:none;font-size:24px;color:#9CA3AF;cursor:pointer;padding:0}.m-body{padding:20px}.inp{margin-bottom:20px}.inp label{display:block;font-size:13px;font-weight:500;margin-bottom:8px;color:#374151}.inp input,.inp select,.inp textarea{width:100%;padding:10px 12px;border:1px solid #e5e7eb;border-radius:6px;font-size:14px;font-family:inherit;background:#fff;transition:border-color .15s}.inp input:focus,.inp select:focus,.inp textarea:focus{outline:none;border-color:#2563eb}.inp textarea{min-height:80px;resize:vertical}.stars{display:flex;gap:8px;font-size:32px}.star{cursor:pointer;color:#e5e7eb;transition:color .15s}.star.act{color:#f59e0b}.opts{display:flex;flex-direction:column;gap:10px}.opt{background:#fafafa;border:1px solid #e5e7eb;border-radius:8px;padding:16px;cursor:pointer;display:flex;align-items:center;gap:16px;transition:all .15s}.opt:hover{background:#f5f5f5;border-color:#d1d5db}.opt-i{font-size:28px}.opt-t{flex:1}.opt-title{font-size:14px;font-weight:500;margin-bottom:2px}.opt-sub{font-size:12px;color:#6B7280}.search{margin-bottom:16px}.search input{width:100%;padding:10px 12px;border:1px solid #e5e7eb;border-radius:6px;font-size:14px}.foods{display:flex;flex-direction:column;gap:8px;max-height:400px;overflow-y:auto}.food{background:#fafafa;border:1px solid #e5e7eb;border-radius:6px;padding:12px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;transition:all .15s}.food:hover{background:#f5f5f5}.food-i{flex:1;min-width:0}.food-n{font-size:14px;font-weight:500;margin-bottom:2px}.food-c{font-size:12px;color:#9CA3AF;margin-bottom:2px}.food-nu{font-size:12px;color:#6B7280}.fav{background:none;border:none;font-size:20px;cursor:pointer;padding:4px;margin-left:8px;transition:transform .15s}.fav:active{transform:scale(0.9)}.fav.act{color:#f59e0b}.fav:not(.act){color:#d1d5db}.amt{background:#fafafa;border:1px solid #e5e7eb;border-radius:8px;padding:20px;margin-bottom:20px}.food-inf{text-align:center;margin-bottom:20px}.food-n2{font-size:16px;font-weight:600;margin-bottom:6px}.food-b{font-size:13px;color:#6B7280}.prev2{background:#fff;border:1px solid #e5e7eb;border-radius:6px;padding:16px;margin-top:16px}.prev-t{font-size:13px;font-weight:600;color:#6B7280;margin-bottom:12px;text-transform:uppercase;letter-spacing:0.5px}.prev-i{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #f3f4f6}.prev-i:last-child{border-bottom:none}.prev-l{font-size:13px;color:#6B7280}.prev-v{font-size:13px;font-weight:600}.img-up{border:1px dashed #d1d5db;border-radius:8px;padding:40px 20px;text-align:center;cursor:pointer;margin-bottom:16px;transition:all .15s}.img-up:hover{border-color:#9CA3AF;background:#fafafa}.img-up.has{padding:0;border:none}.prev{width:100%;border-radius:8px;max-height:280px;object-fit:cover}.up-ph{color:#9CA3AF}.up-i{font-size:40px;margin-bottom:8px;opacity:0.5}.load{text-align:center;padding:40px;color:#9CA3AF}.spin{font-size:32px;animation:spin 1s linear infinite}@keyframes spin{from{transform:rotate(0)}to{transform:rotate(360deg)}}.ai-list{display:flex;flex-direction:column;gap:12px;margin-bottom:20px}.ai-item{background:#fafafa;border:1px solid #e5e7eb;border-radius:8px;padding:16px}.ai-h{display:flex;justify-content:space-between;margin-bottom:12px}.ai-n{font-size:14px;font-weight:500;flex:1}.ai-nu{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.nf{display:flex;flex-direction:column;gap:4px}.nf label{font-size:12px;color:#6B7280;font-weight:500}.nf input{padding:8px 10px;border:1px solid #e5e7eb;border-radius:4px;font-size:14px}.err{background:#fef2f2;border:1px solid #fecaca;border-radius:6px;padding:12px;color:#dc2626;margin-bottom:16px;font-size:13px}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script type="text/babel">
+const { useState, useEffect, useRef } = React;
+
+// ユーティリティ関数
+const generateId = () => Math.random().toString(36).substr(2, 9);
+const getToday = () => new Date().toISOString().split('T')[0];
+const formatDate = (dateStr) => {
+  const date = new Date(dateStr);
+  const days = ['日', '月', '火', '水', '木', '金', '土'];
+  return `${date.getMonth() + 1}/${date.getDate()}（${days[date.getDay()]}）`;
+};
+const save = (key, data) => localStorage.setItem(key, JSON.stringify(data));
+const load = (key) => {
+  const data = localStorage.getItem(key);
+  return data ? JSON.parse(data) : null;
+};
+const parseCSV = (text) => {
+  const lines = text.split('\n').filter(line => line.trim());
+  const headers = lines[0].split(',').map(h => h.trim().replace(/^﻿/, ''));
+  return lines.slice(1).map(line => {
+    const values = line.split(',');
+    const obj = {};
+    headers.forEach((header, i) => {
+      obj[header] = values[i] ? values[i].trim() : '';
+    });
+    return obj;
+  });
+};
+
+// アップロード画面
+const UploadScreen = ({ onComplete }) => {
+  const [files, setFiles] = useState({ catalog: null, records: null, summary: null });
+
+  const handleFileSelect = (type, event) => {
+    const file = event.target.files[0];
+    if (file) {
+      setFiles(prev => ({ ...prev, [type]: file }));
+    }
+  };
+
+  const handleStart = async () => {
+    const foodCatalog = [];
+    const mealRecords = [];
+    const dailySummary = [];
+
+    if (files.catalog) {
+      const text = await files.catalog.text();
+      const parsed = parseCSV(text);
+      parsed.forEach(row => {
+        foodCatalog.push({
+          id: generateId(),
+          name: row['食材名'] || '',
+          baseAmount: parseFloat(row['基準量']) || 1,
+          calories: parseFloat(row['kcal']) || 0,
+          protein: parseFloat(row['P']) || 0,
+          fat: parseFloat(row['F']) || 0,
+          carbs: parseFloat(row['C']) || 0,
+          category: row['タグ'] || '',
+          favorite: false
+        });
+      });
+    }
+
+    if (files.records) {
+      const text = await files.records.text();
+      const parsed = parseCSV(text);
+      parsed.forEach(row => {
+        const dateStr = row['作成日時'] || '';
+        const dateMatch = dateStr.match(/\d{4}年\d{1,2}月\d{1,2}日/);
+        if (dateMatch) {
+          const [year, month, day] = dateMatch[0].match(/\d+/g);
+          const formattedDate = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+          mealRecords.push({
+            id: generateId(),
+            date: formattedDate,
+            foodName: row['食材'] ? row['食材'].split(' (')[0] : '',
+            amount: parseFloat(row['摂取量']) || 1,
+            calories: parseFloat(row['摂取kcal']) || 0,
+            protein: parseFloat(row['摂取P']) || 0,
+            fat: parseFloat(row['摂取F']) || 0,
+            carbs: parseFloat(row['摂取C']) || 0,
+            mealTime: row['時間帯'] || '',
+            memo: ''
+          });
+        }
+      });
+    }
+
+    if (files.summary) {
+      const text = await files.summary.text();
+      const parsed = parseCSV(text);
+      parsed.forEach(row => {
+        const dateStr = row['日付'] || '';
+        const dateMatch = dateStr.match(/\d{4}年\d{1,2}月\d{1,2}日/);
+        if (dateMatch) {
+          const [year, month, day] = dateMatch[0].match(/\d+/g);
+          const formattedDate = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+          const stepsStr = (row['歩数'] || '').replace(/,/g, '');
+          const conditionStr = row['コンディション'] || '';
+          const conditionCount = (conditionStr.match(/★/g) || []).length;
+          
+          dailySummary.push({
+            date: formattedDate,
+            totalCalories: parseFloat(row['kcal']) || 0,
+            totalProtein: parseFloat(row['P']) || 0,
+            totalFat: parseFloat(row['F']) || 0,
+            totalCarbs: parseFloat(row['C']) || 0,
+            sleepHours: parseFloat(row['睡眠時間']) || null,
+            condition: conditionCount || null,
+            weight: parseFloat(row['体重']) || null,
+            steps: parseInt(stepsStr) || null
+          });
+        }
+      });
+    }
+
+    save('foodCatalog', foodCatalog);
+    save('mealRecords', mealRecords);
+    save('dailySummary', dailySummary);
+    
+    if (!load('goals')) {
+      save('goals', { calories: 2000, protein: 80, fat: 60, carbs: 250, steps: 10000, sleepHours: 7.5 });
+    }
+    
+    save('isSetupComplete', true);
+    onComplete();
+  };
+
+  return (
+    <div className="upload">
+      <h1>データのインポート</h1>
+      <p className="sub">CSVファイルをアップロード（任意）</p>
+      <div>
+        {['catalog', 'records', 'summary'].map((type, idx) => (
+          <div key={type}>
+            <input
+              type="file"
+              id={`${type}-file`}
+              accept=".csv"
+              onChange={(e) => handleFileSelect(type, e)}
+            />
+            <label htmlFor={`${type}-file`}>
+              <div className={`file-box ${files[type] ? 'sel' : ''}`}>
+                <div className="file-icon">{['📋', '🍽️', '📊'][idx]}</div>
+                <div className="file-label">{['食材カタログ', '食事記録', '日別サマリ'][idx]}</div>
+                <div className={`file-status ${files[type] ? 'ok' : ''}`}>
+                  {files[type] ? `✓ ${files[type].name}` : 'ファイルを選択'}
+                </div>
+              </div>
+            </label>
+          </div>
+        ))}
+      </div>
+      <button className="btn" onClick={handleStart}>はじめる</button>
+    </div>
+  );
+};
+
+// 入力モーダル（睡眠・体調・体重・歩数）
+const InputModal = ({ type, value, onClose, onSave }) => {
+  const [inputValue, setInputValue] = useState(value || '');
+
+  const handleSave = () => {
+    onSave(inputValue);
+    onClose();
+  };
+
+  const renderInput = () => {
+    switch (type) {
+      case 'sleep':
+        return (
+          <div className="inp">
+            <label>睡眠時間（時間）</label>
+            <input
+              type="number"
+              step="0.5"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              placeholder="7.5"
+            />
+          </div>
+        );
+      case 'condition':
+        return (
+          <div className="inp">
+            <label>体調</label>
+            <div className="stars">
+              {[1, 2, 3, 4, 5].map(star => (
+                <span
+                  key={star}
+                  className={`star ${parseInt(inputValue) >= star ? 'act' : ''}`}
+                  onClick={() => setInputValue(star.toString())}
+                >
+                  ⭐
+                </span>
+              ))}
+            </div>
+          </div>
+        );
+      case 'weight':
+        return (
+          <div className="inp">
+            <label>体重（kg）</label>
+            <input
+              type="number"
+              step="0.1"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              placeholder="70.0"
+            />
+          </div>
+        );
+      case 'steps':
+        return (
+          <div className="inp">
+            <label>歩数</label>
+            <input
+              type="number"
+              value={inputValue}
+              onChange={(e) => setInputValue(e.target.value)}
+              placeholder="10000"
+            />
+          </div>
+        );
+    }
+  };
+
+  const titles = {
+    sleep: '睡眠時間',
+    condition: '体調',
+    weight: '体重',
+    steps: '歩数'
+  };
+
+  return (
+    <div className="modal" onClick={onClose}>
+      <div className="m-con" onClick={(e) => e.stopPropagation()}>
+        <div className="m-h">
+          <h3 className="m-title">{titles[type]}</h3>
+          <button className="close" onClick={onClose}>×</button>
+        </div>
+        <div className="m-body">
+          {renderInput()}
+          <button className="btn" onClick={handleSave}>保存</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// 追加方法選択モーダル
+const AddMethodModal = ({ onClose, onSelect }) => {
+  return (
+    <div className="modal" onClick={onClose}>
+      <div className="m-con" onClick={(e) => e.stopPropagation()}>
+        <div className="m-h">
+          <h3 className="m-title">追加方法</h3>
+          <button className="close" onClick={onClose}>×</button>
+        </div>
+        <div className="m-body">
+          <div className="opts">
+            {[
+              { id: 'ai', icon: '📷', title: 'AI入力', subtitle: '写真から推定' },
+              { id: 'favorites', icon: '⭐', title: 'お気に入り', subtitle: 'よく使う食材' },
+              { id: 'search', icon: '🔍', title: '検索', subtitle: '食材を検索' }
+            ].map(opt => (
+              <div key={opt.id} className="opt" onClick={() => onSelect(opt.id)}>
+                <div className="opt-i">{opt.icon}</div>
+                <div className="opt-t">
+                  <div className="opt-title">{opt.title}</div>
+                  <div className="opt-sub">{opt.subtitle}</div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// 食材選択モーダル
+const FoodSelectionModal = ({ mode, onClose, onSelect }) => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const foodCatalog = load('foodCatalog') || [];
+
+  const toggleFavorite = (foodId) => {
+    const catalog = load('foodCatalog') || [];
+    const food = catalog.find(f => f.id === foodId);
+    if (food) {
+      food.favorite = !food.favorite;
+      save('foodCatalog', catalog);
+    }
+    window.location.reload();
+  };
+
+  const filteredFoods = mode === 'favorites'
+    ? foodCatalog.filter(f => f.favorite)
+    : foodCatalog.filter(f =>
+        f.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        f.category.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+
+  return (
+    <div className="modal" onClick={onClose}>
+      <div className="m-con" onClick={(e) => e.stopPropagation()}>
+        <div className="m-h">
+          <h3 className="m-title">{mode === 'favorites' ? 'お気に入り' : '食材を検索'}</h3>
+          <button className="close" onClick={onClose}>×</button>
+        </div>
+        <div className="m-body">
+          {mode === 'search' && (
+            <div className="search">
+              <input
+                type="text"
+                placeholder="検索..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </div>
+          )}
+          <div className="foods">
+            {filteredFoods.length === 0 ? (
+              <div className="empty">
+                <div className="empty-i">🍽️</div>
+                <div className="empty-t">
+                  {mode === 'favorites' ? 'お気に入りがありません' : '食材が見つかりません'}
+                </div>
+              </div>
+            ) : (
+              filteredFoods.map(food => (
+                <div key={food.id} className="food">
+                  <div className="food-i" onClick={() => onSelect(food)}>
+                    <div className="food-n">{food.name}</div>
+                    {food.category && <div className="food-c">{food.category}</div>}
+                    <div className="food-nu">{food.calories}kcal • P{food.protein}g</div>
+                  </div>
+                  <button
+                    className={`fav ${food.favorite ? 'act' : ''}`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      toggleFavorite(food.id);
+                    }}
+                  >
+                    {food.favorite ? '★' : '☆'}
+                  </button>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// 数量入力モーダル
+const AmountInputModal = ({ food, onClose, onAdd }) => {
+  const [amount, setAmount] = useState(1);
+  const [mealTime, setMealTime] = useState('');
+
+  const calculateNutrition = () => {
+    const multiplier = amount / food.baseAmount;
+    return {
+      calories: Math.round(food.calories * multiplier),
+      protein: Math.round(food.protein * multiplier * 10) / 10,
+      fat: Math.round(food.fat * multiplier * 10) / 10,
+      carbs: Math.round(food.carbs * multiplier * 10) / 10
+    };
+  };
+
+  const nutrition = calculateNutrition();
+
+  const handleAdd = () => {
+    onAdd({
+      foodName: food.name,
+      amount,
+      mealTime,
+      memo: '',
+      ...nutrition
+    });
+    onClose();
+  };
+
+  return (
+    <div className="modal" onClick={onClose}>
+      <div className="m-con" onClick={(e) => e.stopPropagation()}>
+        <div className="m-h">
+          <h3 className="m-title">数量を入力</h3>
+          <button className="close" onClick={onClose}>×</button>
+        </div>
+        <div className="m-body">
+          <div className="amt">
+            <div className="food-inf">
+              <div className="food-n2">{food.name}</div>
+              <div className="food-b">{food.baseAmount}個あたり: {food.calories}kcal</div>
+            </div>
+            <div className="inp">
+              <label>数量</label>
+              <input
+                type="number"
+                step="0.1"
+                min="0.1"
+                value={amount}
+                onChange={(e) => setAmount(parseFloat(e.target.value) || 0)}
+              />
+            </div>
+            <div className="inp">
+              <label>時間帯</label>
+              <select value={mealTime} onChange={(e) => setMealTime(e.target.value)}>
+                <option value="">選択</option>
+                <option value="朝食">朝食</option>
+                <option value="昼食">昼食</option>
+                <option value="間食">間食</option>
+                <option value="夕食">夕食</option>
+              </select>
+            </div>
+            <div className="prev2">
+              <div className="prev-t">合計</div>
+              {['calories', 'protein', 'fat', 'carbs'].map(field => (
+                <div key={field} className="prev-i">
+                  <span className="prev-l">
+                    {{ calories: 'カロリー', protein: 'たんぱく質', fat: '脂質', carbs: '炭水化物' }[field]}
+                  </span>
+                  <span className="prev-v">
+                    {nutrition[field]} {field === 'calories' ? 'kcal' : 'g'}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <button className="btn" onClick={handleAdd}>追加</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+// ダッシュボード
+const Dashboard = ({ onNavigate }) => {
+  const today = getToday();
+  const [todaySummary, setTodaySummary] = useState(null);
+  const [showInputModal, setShowInputModal] = useState(null);
+  const [showSettings, setShowSettings] = useState(false);
+  const goals = load('goals') || { calories: 2000, protein: 80, fat: 60, carbs: 250 };
+
+  useEffect(() => {
+    loadTodaySummary();
+  }, []);
+
+  const loadTodaySummary = () => {
+    const summaries = load('dailySummary') || [];
+    let summary = summaries.find(s => s.date === today);
+    
+    if (!summary) {
+      summary = {
+        date: today,
+        totalCalories: 0,
+        totalProtein: 0,
+        totalFat: 0,
+        totalCarbs: 0,
+        sleepHours: null,
+        condition: null,
+        weight: null,
+        steps: null
+      };
+    }
+
+    const meals = load('mealRecords') || [];
+    const todayMeals = meals.filter(m => m.date === today);
+    
+    summary.totalCalories = todayMeals.reduce((sum, m) => sum + m.calories, 0);
+    summary.totalProtein = Math.round(todayMeals.reduce((sum, m) => sum + m.protein, 0) * 10) / 10;
+    summary.totalFat = Math.round(todayMeals.reduce((sum, m) => sum + m.fat, 0) * 10) / 10;
+    summary.totalCarbs = Math.round(todayMeals.reduce((sum, m) => sum + m.carbs, 0) * 10) / 10;
+    
+    setTodaySummary(summary);
+  };
+
+  const handleSaveData = (type, value) => {
+    const summaries = load('dailySummary') || [];
+    let summary = summaries.find(s => s.date === today);
+    
+    if (!summary) {
+      summary = {
+        date: today,
+        totalCalories: 0,
+        totalProtein: 0,
+        totalFat: 0,
+        totalCarbs: 0,
+        sleepHours: null,
+        condition: null,
+        weight: null,
+        steps: null
+      };
+      summaries.push(summary);
+    }
+
+    const fieldMap = {
+      sleep: 'sleepHours',
+      condition: 'condition',
+      weight: 'weight',
+      steps: 'steps'
+    };
+
+    summary[fieldMap[type]] = type === 'steps'
+      ? parseInt(value) || null
+      : type === 'condition'
+      ? parseInt(value) || null
+      : parseFloat(value) || null;
+
+    save('dailySummary', summaries);
+    loadTodaySummary();
+  };
+
+  const getProgressColor = (current, target) => {
+    return (current / target) * 100 >= 80 ? 'good' : 'low';
+  };
+
+  const getPercentage = (current, target) => {
+    return Math.round((current / target) * 100);
+  };
+
+  if (!todaySummary) return null;
+
+  return (
+    <>
+      <div className="header">
+        <div className="hdr-row">
+          <div>
+            <div className="title">Diet</div>
+            <div className="date">{formatDate(today)}</div>
+          </div>
+          <button className="set-btn" onClick={() => setShowSettings(true)}>⚙️</button>
+        </div>
+      </div>
+      <div className="dash">
+        <div className="sec">
+          <div className="sec-t">今日の記録</div>
+          <div className="grid">
+            {[
+              { key: 'sleep', icon: '😴', label: '睡眠', value: todaySummary.sleepHours ? `${todaySummary.sleepHours}h` : '-' },
+              { key: 'condition', icon: '💪', label: '体調', value: todaySummary.condition ? '⭐'.repeat(todaySummary.condition) : '-' },
+              { key: 'weight', icon: '⚖️', label: '体重', value: todaySummary.weight ? `${todaySummary.weight}kg` : '-' },
+              { key: 'steps', icon: '👟', label: '歩数', value: todaySummary.steps ? `${Math.round(todaySummary.steps / 1000)}k` : '-' }
+            ].map(stat => (
+              <div key={stat.key} className="card" onClick={() => setShowInputModal(stat.key)}>
+                <div className="card-l">{stat.icon} {stat.label}</div>
+                <div className="card-v">{stat.value}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <div className="sec">
+          <div className="sec-t">栄養</div>
+          {[
+            { icon: '🔥', label: 'カロリー', current: todaySummary.totalCalories, goal: goals.calories, unit: 'kcal' },
+            { icon: '🥩', label: 'たんぱく質', current: todaySummary.totalProtein, goal: goals.protein, unit: 'g' }
+          ].map(item => (
+            <div key={item.label} className="nut">
+              <div className="nut-h">{item.icon} {item.label}</div>
+              <div className="nut-r">
+                <span className="nut-c">{item.current}</span>
+                <span className="nut-t">/ {item.goal} {item.unit}</span>
+              </div>
+              <div className="bar">
+                <div
+                  className={`fill ${getProgressColor(item.current, item.goal)}`}
+                  style={{ width: `${Math.min(100, getPercentage(item.current, item.goal))}%` }}
+                />
+              </div>
+              <div className="pct">{getPercentage(item.current, item.goal)}%</div>
+            </div>
+          ))}
+          
+          <div className="grid">
+            {[
+              { icon: '🧈', label: '脂質', current: todaySummary.totalFat, goal: goals.fat },
+              { icon: '🍚', label: '炭水化物', current: todaySummary.totalCarbs, goal: goals.carbs }
+            ].map(item => (
+              <div key={item.label} className="nut">
+                <div className="nut-h">{item.icon} {item.label}</div>
+                <div className="nut-r">
+                  <span className="nut-c">{item.current}g</span>
+                  <span className="nut-t">/ {item.goal}g</span>
+                </div>
+                <div className="bar">
+                  <div
+                    className={`fill ${getProgressColor(item.current, item.goal)}`}
+                    style={{ width: `${Math.min(100, getPercentage(item.current, item.goal))}%` }}
+                  />
+                </div>
+                <div className="pct">{getPercentage(item.current, item.goal)}%</div>
+              </div>
+            ))}
+          </div>
+        </div>
+        
+        <button className="add" onClick={() => onNavigate('meals')}>+ 食事を記録</button>
+      </div>
+      
+      {showInputModal && (
+        <InputModal
+          type={showInputModal}
+          value={todaySummary[{ sleep: 'sleepHours', condition: 'condition', weight: 'weight', steps: 'steps' }[showInputModal]]}
+          onClose={() => setShowInputModal(null)}
+          onSave={(value) => handleSaveData(showInputModal, value)}
+        />
+      )}
+      
+      {showSettings && <SettingsModal onClose={() => setShowSettings(false)} />}
+    </>
+  );
+};
+
+// 設定モーダル
+const SettingsModal = ({ onClose }) => {
+  const [tab, setTab] = useState('goals');
+  const [goals, setGoals] = useState(load('goals') || { calories: 2000, protein: 80, fat: 60, carbs: 250, steps: 10000, sleepHours: 7.5 });
+  const [apiKey, setApiKey] = useState(load('claudeApiKey') || '');
+  const [foodCatalog, setFoodCatalog] = useState(load('foodCatalog') || []);
+  const [mealRecords, setMealRecords] = useState(load('mealRecords') || []);
+  const [dailySummary, setDailySummary] = useState(load('dailySummary') || []);
+  const [editingFood, setEditingFood] = useState(null);
+  const [editingMeal, setEditingMeal] = useState(null);
+  const [editingSummary, setEditingSummary] = useState(null);
+
+  const handleSaveGoals = () => {
+    save('goals', goals);
+    save('claudeApiKey', apiKey);
+    alert('保存しました');
+    window.location.reload();
+  };
+
+  return (
+    <div className="modal" onClick={onClose}>
+      <div className="m-con" onClick={(e) => e.stopPropagation()}>
+        <div className="m-h">
+          <h3 className="m-title">設定</h3>
+          <button className="close" onClick={onClose}>×</button>
+        </div>
+        <div className="m-body">
+          <div style={{ display: 'flex', gap: '6px', marginBottom: '20px', overflowX: 'auto' }}>
+            {[
+              { id: 'goals', label: '目標値' },
+              { id: 'foods', label: '食材' },
+              { id: 'meals', label: '食事記録' },
+              { id: 'summary', label: 'サマリ' }
+            ].map(t => (
+              <button
+                key={t.id}
+                onClick={() => setTab(t.id)}
+                style={{
+                  flex: 1,
+                  minWidth: '80px',
+                  padding: '8px 12px',
+                  background: tab === t.id ? '#111' : '#fafafa',
+                  color: tab === t.id ? '#fff' : '#6B7280',
+                  border: tab === t.id ? '1px solid #111' : '1px solid #e5e7eb',
+                  borderRadius: '6px',
+                  fontSize: '13px',
+                  fontWeight: 500,
+                  cursor: 'pointer',
+                  whiteSpace: 'nowrap',
+                  transition: 'all .15s'
+                }}
+              >
+                {t.label}
+              </button>
+            ))}
+          </div>
+
+          {tab === 'goals' && (
+            <div>
+              <div style={{ marginBottom: '24px', paddingBottom: '24px', borderBottom: '1px solid #e5e7eb' }}>
+                <div className="sec-t">データのバックアップ</div>
+                <p style={{ fontSize: '13px', color: '#6B7280', marginBottom: '12px' }}>
+                  すべてのデータをJSONファイルとして保存・復元できます
+                </p>
+                <div style={{ display: 'flex', gap: '8px' }}>
+                  <button
+                    className="btn"
+                    style={{ flex: 1, background: '#10b981' }}
+                    onClick={() => {
+                      const allData = {
+                        foodCatalog: load('foodCatalog') || [],
+                        mealRecords: load('mealRecords') || [],
+                        dailySummary: load('dailySummary') || [],
+                        goals: load('goals') || {},
+                        exportDate: new Date().toISOString()
+                      };
+                      const json = JSON.stringify(allData, null, 2);
+                      const blob = new Blob([json], { type: 'application/json' });
+                      const link = document.createElement('a');
+                      link.href = URL.createObjectURL(blob);
+                      link.download = `diet-backup-${getToday()}.json`;
+                      link.click();
+                      alert('バックアップを保存しました');
+                    }}
+                  >
+                    📥 バックアップ
+                  </button>
+                  <button
+                    className="btn"
+                    style={{ flex: 1, background: '#8b5cf6' }}
+                    onClick={() => {
+                      const input = document.createElement('input');
+                      input.type = 'file';
+                      input.accept = '.json';
+                      input.onchange = async (e) => {
+                        const file = e.target.files[0];
+                        if (file) {
+                          const text = await file.text();
+                          const data = JSON.parse(text);
+                          if (confirm('現在のデータを上書きしますか？この操作は取り消せません。')) {
+                            save('foodCatalog', data.foodCatalog || []);
+                            save('mealRecords', data.mealRecords || []);
+                            save('dailySummary', data.dailySummary || []);
+                            save('goals', data.goals || {});
+                            alert('復元しました。ページを再読み込みしてください。');
+                            window.location.reload();
+                          }
+                        }
+                      };
+                      input.click();
+                    }}
+                  >
+                    📤 復元
+                  </button>
+                </div>
+              </div>
+
+              <div style={{ marginBottom: '24px', paddingBottom: '24px', borderBottom: '1px solid #e5e7eb' }}>
+                <div className="sec-t">Claude API</div>
+                <div className="inp">
+                  <label>APIキー</label>
+                  <input
+                    type="password"
+                    value={apiKey}
+                    onChange={(e) => setApiKey(e.target.value)}
+                    placeholder="sk-ant-..."
+                  />
+                </div>
+              </div>
+
+              <div style={{ marginBottom: '24px', paddingBottom: '24px', borderBottom: '1px solid #e5e7eb' }}>
+                <div className="sec-t">栄養目標</div>
+                <div className="grid">
+                  <div className="inp">
+                    <label>カロリー (kcal)</label>
+                    <input type="number" value={goals.calories} onChange={(e) => setGoals({ ...goals, calories: parseInt(e.target.value) || 0 })} />
+                  </div>
+                  <div className="inp">
+                    <label>たんぱく質 (g)</label>
+                    <input type="number" value={goals.protein} onChange={(e) => setGoals({ ...goals, protein: parseInt(e.target.value) || 0 })} />
+                  </div>
+                  <div className="inp">
+                    <label>脂質 (g)</label>
+                    <input type="number" value={goals.fat} onChange={(e) => setGoals({ ...goals, fat: parseInt(e.target.value) || 0 })} />
+                  </div>
+                  <div className="inp">
+                    <label>炭水化物 (g)</label>
+                    <input type="number" value={goals.carbs} onChange={(e) => setGoals({ ...goals, carbs: parseInt(e.target.value) || 0 })} />
+                  </div>
+                </div>
+              </div>
+
+              <div style={{ marginBottom: '24px' }}>
+                <div className="sec-t">その他の目標</div>
+                <div className="grid">
+                  <div className="inp">
+                    <label>歩数 (歩)</label>
+                    <input type="number" value={goals.steps || 10000} onChange={(e) => setGoals({ ...goals, steps: parseInt(e.target.value) || 0 })} />
+                  </div>
+                  <div className="inp">
+                    <label>睡眠時間 (時間)</label>
+                    <input type="number" step="0.5" value={goals.sleepHours || 7.5} onChange={(e) => setGoals({ ...goals, sleepHours: parseFloat(e.target.value) || 0 })} />
+                  </div>
+                </div>
+              </div>
+
+              <button className="btn" onClick={handleSaveGoals}>保存</button>
+            </div>
+          )}
+
+          {tab === 'foods' && (
+            <FoodCatalogTab
+              foodCatalog={foodCatalog}
+              setFoodCatalog={setFoodCatalog}
+              editingFood={editingFood}
+              setEditingFood={setEditingFood}
+            />
+          )}
+
+          {tab === 'meals' && (
+            <MealRecordsTab
+              mealRecords={mealRecords}
+              setMealRecords={setMealRecords}
+              editingMeal={editingMeal}
+              setEditingMeal={setEditingMeal}
+            />
+          )}
+
+          {tab === 'summary' && (
+            <SummaryTab
+              dailySummary={dailySummary}
+              setDailySummary={setDailySummary}
+              editingSummary={editingSummary}
+              setEditingSummary={setEditingSummary}
+            />
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// 食材カタログタブ
+const FoodCatalogTab = ({ foodCatalog, setFoodCatalog, editingFood, setEditingFood }) => {
+  const handleDeleteFood = (id) => {
+    if (confirm('この食材を削除しますか？')) {
+      const updated = foodCatalog.filter(f => f.id !== id);
+      setFoodCatalog(updated);
+      save('foodCatalog', updated);
+    }
+  };
+
+  const handleResetCatalog = () => {
+    if (confirm('すべての食材カタログを削除しますか？この操作は取り消せません。')) {
+      save('foodCatalog', []);
+      setFoodCatalog([]);
+      alert('削除しました');
+    }
+  };
+
+  const handleExportCSV = () => {
+    const headers = ['食材名', '基準量', 'kcal', 'P', 'F', 'C', 'タグ'];
+    const rows = foodCatalog.map(f => [
+      f.name,
+      f.baseAmount,
+      f.calories,
+      f.protein,
+      f.fat,
+      f.carbs,
+      f.category
+    ]);
+    
+    const csv = [headers, ...rows].map(row => row.join(',')).join('\n');
+    const blob = new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = `食材カタログ_${getToday()}.csv`;
+    link.click();
+  };
+
+  const handleSaveFood = (food) => {
+    const updated = food.id
+      ? foodCatalog.map(f => f.id === food.id ? food : f)
+      : [...foodCatalog, { ...food, id: generateId() }];
+    setFoodCatalog(updated);
+    save('foodCatalog', updated);
+    setEditingFood(null);
+  };
+
+  return (
+    <div>
+      <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
+        <button className="btn" style={{ flex: 1 }} onClick={() => setEditingFood({})}>+ 追加</button>
+        <button className="btn" style={{ flex: 1, background: '#2563eb' }} onClick={handleExportCSV}>エクスポート</button>
+        <button className="btn" style={{ flex: 1, background: '#ef4444' }} onClick={handleResetCatalog}>全削除</button>
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', maxHeight: '400px', overflowY: 'auto' }}>
+        {foodCatalog.length === 0 ? (
+          <div className="empty-t" style={{ padding: '40px 20px', textAlign: 'center' }}>食材がありません</div>
+        ) : (
+          foodCatalog.map(food => (
+            <div key={food.id} style={{ background: '#fafafa', border: '1px solid #e5e7eb', borderRadius: '6px', padding: '12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ fontSize: '14px', fontWeight: 500 }}>{food.name}</div>
+                <div style={{ fontSize: '12px', color: '#6B7280', marginTop: '4px' }}>{food.calories}kcal • P{food.protein}g</div>
+              </div>
+              <div style={{ display: 'flex', gap: '6px', marginLeft: '12px' }}>
+                <button onClick={() => setEditingFood(food)} style={{ padding: '6px 10px', fontSize: '12px', borderRadius: '4px', border: 'none', cursor: 'pointer', fontWeight: 500, background: '#111', color: '#fff' }}>編集</button>
+                <button onClick={() => handleDeleteFood(food.id)} className="del">削除</button>
+              </div>
+            </div>
+          ))
+        )}
+      </div>
+      {editingFood && (
+        <FoodEditModal
+          food={editingFood}
+          onClose={() => setEditingFood(null)}
+          onSave={handleSaveFood}
+        />
+      )}
+    </div>
+  );
+};
+
+// 食材編集モーダル
+const FoodEditModal = ({ food, onClose, onSave }) => {
+  const [formData, setFormData] = useState(food.id ? food : {
+    name: '',
+    baseAmount: 1,
+    calories: 0,
+    protein: 0,
+    fat: 0,
+    carbs: 0,
+    category: '',
+    favorite: false
+  });
+
+  return (
+    <div className="modal" onClick={onClose}>
+      <div className="m-con" onClick={(e) => e.stopPropagation()}>
+        <div className="m-h">
+          <h3 className="m-title">{food.id ? '食材を編集' : '食材を追加'}</h3>
+          <button className="close" onClick={onClose}>×</button>
+        </div>
+        <div className="m-body">
+          <div className="inp">
+            <label>食材名</label>
+            <input value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} />
+          </div>
+          <div className="inp">
+            <label>基準量</label>
+            <input type="number" step="0.1" value={formData.baseAmount} onChange={(e) => setFormData({ ...formData, baseAmount: parseFloat(e.target.value) || 0 })} />
+          </div>
+          <div className="grid">
+            <div className="inp">
+              <label>カロリー</label>
+              <input type="number" value={formData.calories} onChange={(e) => setFormData({ ...formData, calories: parseFloat(e.target.value) || 0 })} />
+            </div>
+            <div className="inp">
+              <label>たんぱく質</label>
+              <input type="number" step="0.1" value={formData.protein} onChange={(e) => setFormData({ ...formData, protein: parseFloat(e.target.value) || 0 })} />
+            </div>
+            <div className="inp">
+              <label>脂質</label>
+              <input type="number" step="0.1" value={formData.fat} onChange={(e) => setFormData({ ...formData, fat: parseFloat(e.target.value) || 0 })} />
+            </div>
+            <div className="inp">
+              <label>炭水化物</label>
+              <input type="number" step="0.1" value={formData.carbs} onChange={(e) => setFormData({ ...formData, carbs: parseFloat(e.target.value) || 0 })} />
+            </div>
+          </div>
+          <div className="inp">
+            <label>カテゴリ</label>
+            <input value={formData.category} onChange={(e) => setFormData({ ...formData, category: e.target.value })} placeholder="例: 果物" />
+          </div>
+          <button className="btn" onClick={() => onSave(formData)}>保存</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// 食事記録タブ
+const MealRecordsTab = ({ mealRecords, setMealRecords, editingMeal, setEditingMeal }) => {
+  const handleDeleteMeal = (id) => {
+    if (confirm('この食事記録を削除しますか？')) {
+      const updated = mealRecords.filter(m => m.id !== id);
+      setMealRecords(updated);
+      save('mealRecords', updated);
+    }
+  };
+
+  const handleResetMeals = () => {
+    if (confirm('すべての食事記録を削除しますか？この操作は取り消せません。')) {
+      save('mealRecords', []);
+      setMealRecords([]);
+      alert('削除しました');
+    }
+  };
+
+  const handleExportCSV = () => {
+    const headers = ['作成日時', '食材', '摂取量', '摂取kcal', '摂取P', '摂取F', '摂取C', '時間帯'];
+    const rows = mealRecords.map(m => {
+      const date = new Date(m.date);
+      const dateStr = `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`;
+      return [
+        dateStr,
+        m.foodName,
+        m.amount,
+        m.calories,
+        m.protein,
+        m.fat,
+        m.carbs,
+        m.mealTime
+      ];
+    });
+    
+    const csv = [headers, ...rows].map(row => row.join(',')).join('\n');
+    const blob = new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = `食事記録_${getToday()}.csv`;
+    link.click();
+  };
+
+  const handleSaveMeal = (meal) => {
+    const updated = meal.id
+      ? mealRecords.map(m => m.id === meal.id ? meal : m)
+      : [...mealRecords, { ...meal, id: generateId() }];
+    setMealRecords(updated);
+    save('mealRecords', updated);
+    setEditingMeal(null);
+  };
+
+  return (
+    <div>
+      <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
+        <button className="btn" style={{ flex: 1 }} onClick={() => setEditingMeal({})}>+ 追加</button>
+        <button className="btn" style={{ flex: 1, background: '#2563eb' }} onClick={handleExportCSV}>エクスポート</button>
+        <button className="btn" style={{ flex: 1, background: '#ef4444' }} onClick={handleResetMeals}>全削除</button>
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', maxHeight: '400px', overflowY: 'auto' }}>
+        {mealRecords.length === 0 ? (
+          <div className="empty-t" style={{ padding: '40px 20px', textAlign: 'center' }}>食事記録がありません</div>
+        ) : (
+          mealRecords.sort((a, b) => b.date.localeCompare(a.date)).map(meal => (
+            <div key={meal.id} style={{ background: '#fafafa', border: '1px solid #e5e7eb', borderRadius: '6px', padding: '12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ fontSize: '14px', fontWeight: 500 }}>{meal.foodName}</div>
+                <div style={{ fontSize: '12px', color: '#6B7280', marginTop: '4px' }}>{formatDate(meal.date)} • {meal.calories}kcal</div>
+              </div>
+              <div style={{ display: 'flex', gap: '6px', marginLeft: '12px' }}>
+                <button onClick={() => setEditingMeal(meal)} style={{ padding: '6px 10px', fontSize: '12px', borderRadius: '4px', border: 'none', cursor: 'pointer', fontWeight: 500, background: '#111', color: '#fff' }}>編集</button>
+                <button onClick={() => handleDeleteMeal(meal.id)} className="del">削除</button>
+              </div>
+            </div>
+          ))
+        )}
+      </div>
+      {editingMeal && (
+        <MealEditModal
+          meal={editingMeal}
+          onClose={() => setEditingMeal(null)}
+          onSave={handleSaveMeal}
+        />
+      )}
+    </div>
+  );
+};
+
+// 食事記録編集モーダル
+const MealEditModal = ({ meal, onClose, onSave }) => {
+  const [formData, setFormData] = useState(meal.id ? meal : {
+    date: getToday(),
+    foodName: '',
+    amount: 1,
+    calories: 0,
+    protein: 0,
+    fat: 0,
+    carbs: 0,
+    mealTime: '',
+    memo: ''
+  });
+
+  return (
+    <div className="modal" onClick={onClose}>
+      <div className="m-con" onClick={(e) => e.stopPropagation()}>
+        <div className="m-h">
+          <h3 className="m-title">{meal.id ? '食事記録を編集' : '食事記録を追加'}</h3>
+          <button className="close" onClick={onClose}>×</button>
+        </div>
+        <div className="m-body">
+          <div className="inp">
+            <label>日付</label>
+            <input type="date" value={formData.date} onChange={(e) => setFormData({ ...formData, date: e.target.value })} />
+          </div>
+          <div className="inp">
+            <label>食材名</label>
+            <input value={formData.foodName} onChange={(e) => setFormData({ ...formData, foodName: e.target.value })} />
+          </div>
+          <div className="inp">
+            <label>数量</label>
+            <input type="number" step="0.1" value={formData.amount} onChange={(e) => setFormData({ ...formData, amount: parseFloat(e.target.value) || 0 })} />
+          </div>
+          <div className="grid">
+            <div className="inp">
+              <label>カロリー</label>
+              <input type="number" value={formData.calories} onChange={(e) => setFormData({ ...formData, calories: parseFloat(e.target.value) || 0 })} />
+            </div>
+            <div className="inp">
+              <label>たんぱく質</label>
+              <input type="number" step="0.1" value={formData.protein} onChange={(e) => setFormData({ ...formData, protein: parseFloat(e.target.value) || 0 })} />
+            </div>
+            <div className="inp">
+              <label>脂質</label>
+              <input type="number" step="0.1" value={formData.fat} onChange={(e) => setFormData({ ...formData, fat: parseFloat(e.target.value) || 0 })} />
+            </div>
+            <div className="inp">
+              <label>炭水化物</label>
+              <input type="number" step="0.1" value={formData.carbs} onChange={(e) => setFormData({ ...formData, carbs: parseFloat(e.target.value) || 0 })} />
+            </div>
+          </div>
+          <div className="inp">
+            <label>時間帯</label>
+            <select value={formData.mealTime} onChange={(e) => setFormData({ ...formData, mealTime: e.target.value })}>
+              <option value="">選択</option>
+              <option value="朝食">朝食</option>
+              <option value="昼食">昼食</option>
+              <option value="間食">間食</option>
+              <option value="夕食">夕食</option>
+            </select>
+          </div>
+          <button className="btn" onClick={() => onSave(formData)}>保存</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// 日別サマリタブ
+const SummaryTab = ({ dailySummary, setDailySummary, editingSummary, setEditingSummary }) => {
+  const handleDeleteSummary = (date) => {
+    if (confirm('このサマリを削除しますか？')) {
+      const updated = dailySummary.filter(s => s.date !== date);
+      setDailySummary(updated);
+      save('dailySummary', updated);
+    }
+  };
+
+  const handleResetSummary = () => {
+    if (confirm('すべての日別サマリを削除しますか？この操作は取り消せません。')) {
+      save('dailySummary', []);
+      setDailySummary([]);
+      alert('削除しました');
+    }
+  };
+
+  const handleExportCSV = () => {
+    const headers = ['日付', 'kcal', 'P', 'F', 'C', '睡眠時間', 'コンディション', '体重', '歩数'];
+    const rows = dailySummary.map(s => {
+      const date = new Date(s.date);
+      const dateStr = `${date.getFullYear()}年${date.getMonth() + 1}月${date.getDate()}日`;
+      const condition = s.condition ? '★'.repeat(s.condition) : '';
+      return [
+        dateStr,
+        s.totalCalories || 0,
+        s.totalProtein || 0,
+        s.totalFat || 0,
+        s.totalCarbs || 0,
+        s.sleepHours || '',
+        condition,
+        s.weight || '',
+        s.steps || ''
+      ];
+    });
+    
+    const csv = [headers, ...rows].map(row => row.join(',')).join('\n');
+    const blob = new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = `日別サマリ_${getToday()}.csv`;
+    link.click();
+  };
+
+  const handleSaveSummary = (summary) => {
+    const summaries = load('dailySummary') || [];
+    const existing = summaries.find(s => s.date === summary.date);
+    if (existing) {
+      Object.assign(existing, summary);
+    } else {
+      summaries.push({ ...summary, totalCalories: 0, totalProtein: 0, totalFat: 0, totalCarbs: 0 });
+    }
+    save('dailySummary', summaries);
+    setDailySummary(summaries);
+    setEditingSummary(null);
+  };
+
+  return (
+    <div>
+      <div style={{ display: 'flex', gap: '8px', marginBottom: '16px' }}>
+        <button className="btn" style={{ flex: 1 }} onClick={() => setEditingSummary({})}>+ 追加</button>
+        <button className="btn" style={{ flex: 1, background: '#2563eb' }} onClick={handleExportCSV}>エクスポート</button>
+        <button className="btn" style={{ flex: 1, background: '#ef4444' }} onClick={handleResetSummary}>全削除</button>
+      </div>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', maxHeight: '400px', overflowY: 'auto' }}>
+        {dailySummary.length === 0 ? (
+          <div className="empty-t" style={{ padding: '40px 20px', textAlign: 'center' }}>日別サマリがありません</div>
+        ) : (
+          dailySummary.sort((a, b) => b.date.localeCompare(a.date)).map(summary => (
+            <div key={summary.date} style={{ background: '#fafafa', border: '1px solid #e5e7eb', borderRadius: '6px', padding: '12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ fontSize: '14px', fontWeight: 500 }}>{formatDate(summary.date)}</div>
+                <div style={{ fontSize: '12px', color: '#6B7280', marginTop: '4px' }}>
+                  睡眠{summary.sleepHours || '-'}h • 体重{summary.weight || '-'}kg
+                </div>
+              </div>
+              <div style={{ display: 'flex', gap: '6px', marginLeft: '12px' }}>
+                <button onClick={() => setEditingSummary(summary)} style={{ padding: '6px 10px', fontSize: '12px', borderRadius: '4px', border: 'none', cursor: 'pointer', fontWeight: 500, background: '#111', color: '#fff' }}>編集</button>
+                <button onClick={() => handleDeleteSummary(summary.date)} className="del">削除</button>
+              </div>
+            </div>
+          ))
+        )}
+      </div>
+      {editingSummary && (
+        <SummaryEditModal
+          summary={editingSummary}
+          onClose={() => setEditingSummary(null)}
+          onSave={handleSaveSummary}
+        />
+      )}
+    </div>
+  );
+};
+
+// 日別サマリ編集モーダル
+const SummaryEditModal = ({ summary, onClose, onSave }) => {
+  const [formData, setFormData] = useState(summary.date ? summary : {
+    date: getToday(),
+    sleepHours: null,
+    condition: null,
+    weight: null,
+    steps: null
+  });
+
+  return (
+    <div className="modal" onClick={onClose}>
+      <div className="m-con" onClick={(e) => e.stopPropagation()}>
+        <div className="m-h">
+          <h3 className="m-title">{summary.date ? '日別サマリを編集' : '日別サマリを追加'}</h3>
+          <button className="close" onClick={onClose}>×</button>
+        </div>
+        <div className="m-body">
+          <div className="inp">
+            <label>日付</label>
+            <input type="date" value={formData.date} onChange={(e) => setFormData({ ...formData, date: e.target.value })} />
+          </div>
+          <div className="grid">
+            <div className="inp">
+              <label>睡眠時間</label>
+              <input type="number" step="0.5" value={formData.sleepHours || ''} onChange={(e) => setFormData({ ...formData, sleepHours: parseFloat(e.target.value) || null })} />
+            </div>
+            <div className="inp">
+              <label>体調 (1-5)</label>
+              <input type="number" min="1" max="5" value={formData.condition || ''} onChange={(e) => setFormData({ ...formData, condition: parseInt(e.target.value) || null })} />
+            </div>
+            <div className="inp">
+              <label>体重</label>
+              <input type="number" step="0.1" value={formData.weight || ''} onChange={(e) => setFormData({ ...formData, weight: parseFloat(e.target.value) || null })} />
+            </div>
+            <div className="inp">
+              <label>歩数</label>
+              <input type="number" value={formData.steps || ''} onChange={(e) => setFormData({ ...formData, steps: parseInt(e.target.value) || null })} />
+            </div>
+          </div>
+          <button className="btn" onClick={() => onSave(formData)}>保存</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// 食事記録
+const MealRecords = ({ onNavigate }) => {
+  const today = getToday();
+  const [todayMeals, setTodayMeals] = useState([]);
+  const [showAddMethodModal, setShowAddMethodModal] = useState(false);
+  const [showFoodSelection, setShowFoodSelection] = useState(null);
+  const [showAmountInput, setShowAmountInput] = useState(null);
+  const [showAIInput, setShowAIInput] = useState(false);
+
+  useEffect(() => {
+    loadTodayMeals();
+  }, []);
+
+  const loadTodayMeals = () => {
+    const meals = load('mealRecords') || [];
+    setTodayMeals(meals.filter(m => m.date === today));
+  };
+
+  const handleDeleteMeal = (mealId) => {
+    const meals = load('mealRecords') || [];
+    save('mealRecords', meals.filter(m => m.id !== mealId));
+    loadTodayMeals();
+  };
+
+  const handleAddMeal = (mealData) => {
+    const meals = load('mealRecords') || [];
+    meals.push({
+      id: generateId(),
+      date: today,
+      ...mealData
+    });
+    save('mealRecords', meals);
+    loadTodayMeals();
+  };
+
+  const handleAIComplete = (results) => {
+    const meals = load('mealRecords') || [];
+    results.forEach(result => {
+      meals.push({
+        id: generateId(),
+        date: today,
+        ...result,
+        mealTime: '',
+        memo: ''
+      });
+    });
+    save('mealRecords', meals);
+    loadTodayMeals();
+  };
+
+  return (
+    <>
+      <div className="header">
+        <div className="hdr-row" style={{ gap: '12px' }}>
+          <button className="back" onClick={() => onNavigate('dashboard')}>←</button>
+          <div style={{ flex: 1 }}>
+            <div className="title">食事記録</div>
+            <div className="date">{formatDate(today)}</div>
+          </div>
+        </div>
+      </div>
+      <div style={{ padding: '24px 20px' }}>
+        <div className="meals">
+          {todayMeals.length === 0 ? (
+            <div className="empty">
+              <div className="empty-i">🍽️</div>
+              <div className="empty-t">今日の食事記録がありません</div>
+            </div>
+          ) : (
+            todayMeals.map(meal => (
+              <div key={meal.id} className="meal">
+                <div className="meal-h">
+                  <div className="meal-n">{meal.foodName}</div>
+                  <button className="del" onClick={() => handleDeleteMeal(meal.id)}>削除</button>
+                </div>
+                <div className="meal-m">
+                  {meal.amount}個{meal.mealTime ? ` • ${meal.mealTime}` : ''}
+                </div>
+                <div className="meal-nu">
+                  {meal.calories}kcal • P{meal.protein}g
+                </div>
+              </div>
+            ))
+          )}
+        </div>
+        <button className="add" onClick={() => setShowAddMethodModal(true)}>+ 追加</button>
+      </div>
+      
+      {showAddMethodModal && (
+        <AddMethodModal
+          onClose={() => setShowAddMethodModal(false)}
+          onSelect={(method) => {
+            setShowAddMethodModal(false);
+            if (method === 'ai') {
+              setShowAIInput(true);
+            } else {
+              setShowFoodSelection(method);
+            }
+          }}
+        />
+      )}
+      
+      {showAIInput && (
+        <AIInputModal
+          onClose={() => setShowAIInput(false)}
+          onComplete={handleAIComplete}
+        />
+      )}
+      
+      {showFoodSelection && (
+        <FoodSelectionModal
+          mode={showFoodSelection}
+          onClose={() => setShowFoodSelection(null)}
+          onSelect={(food) => {
+            setShowFoodSelection(null);
+            setShowAmountInput(food);
+          }}
+        />
+      )}
+      
+      {showAmountInput && (
+        <AmountInputModal
+          food={showAmountInput}
+          onClose={() => setShowAmountInput(null)}
+          onAdd={handleAddMeal}
+        />
+      )}
+    </>
+  );
+};
+
+// AI入力モーダル
+const AIInputModal = ({ onClose, onComplete }) => {
+  const [mode, setMode] = useState(null); // 'image', 'text', 'both'
+  const [image, setImage] = useState(null);
+  const [imagePreview, setImagePreview] = useState(null);
+  const [textInput, setTextInput] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [aiResults, setAiResults] = useState(null);
+  const fileInputRef = useRef(null);
+
+  const handleImageSelect = (e) => {
+    const file = e.target.files[0];
+    if (file) {
+      setImage(file);
+      const reader = new FileReader();
+      reader.onloadend = () => setImagePreview(reader.result);
+      reader.readAsDataURL(file);
+    }
+  };
+
+  const handleAIAnalysis = async () => {
+    const apiKey = load('claudeApiKey');
+    if (!apiKey) {
+      setError('設定からAPIキーを入力してください');
+      return;
+    }
+
+    if (mode === 'image' && !image) {
+      setError('写真を選択してください');
+      return;
+    }
+
+    if (mode === 'text' && !textInput.trim()) {
+      setError('テキストを入力してください');
+      return;
+    }
+
+    if (mode === 'both' && (!image || !textInput.trim())) {
+      setError('写真とテキストの両方を入力してください');
+      return;
+    }
+
+    setLoading(true);
+    setError('');
+
+    try {
+      const content = [];
+
+      // 画像がある場合
+      if (image && (mode === 'image' || mode === 'both')) {
+        const reader = new FileReader();
+        const base64Image = await new Promise((resolve, reject) => {
+          reader.onloadend = () => resolve(reader.result.split(',')[1]);
+          reader.onerror = reject;
+          reader.readAsDataURL(image);
+        });
+
+        content.push({
+          type: 'image',
+          source: {
+            type: 'base64',
+            media_type: 'image/jpeg',
+            data: base64Image
+          }
+        });
+      }
+
+      // テキスト入力
+      let promptText = '';
+      if (mode === 'text') {
+        promptText = `次の食事の栄養素を推定してください：${textInput}\n\n`;
+      } else if (mode === 'image') {
+        promptText = 'この食事の栄養素を推定してください。\n\n';
+      } else if (mode === 'both') {
+        promptText = `この食事の栄養素を推定してください。補足情報：${textInput}\n\n`;
+      }
+
+      promptText += 'JSON形式で返してください:\n[{"食材名":"...","カロリー":数値,"たんぱく質":数値,"脂質":数値,"炭水化物":数値,"量":数値}]';
+
+      content.push({
+        type: 'text',
+        text: promptText
+      });
+
+      const response = await fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': apiKey,
+          'anthropic-version': '2023-06-01'
+        },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-20250514',
+          max_tokens: 1000,
+          messages: [{
+            role: 'user',
+            content: content
+          }]
+        })
+      });
+
+      if (!response.ok) throw new Error('API呼び出しに失敗');
+
+      const data = await response.json();
+      let jsonText = data.content[0].text.trim();
+      if (jsonText.startsWith('```')) {
+        jsonText = jsonText.replace(/```json?\n?/g, '').replace(/```/g, '').trim();
+      }
+
+      const results = JSON.parse(jsonText);
+      setAiResults(results.map(r => ({
+        id: generateId(),
+        foodName: r.食材名,
+        calories: r.カロリー,
+        protein: r.たんぱく質,
+        fat: r.脂質,
+        carbs: r.炭水化物,
+        amount: r.量
+      })));
+      setLoading(false);
+    } catch (err) {
+      setError('AI分析に失敗: ' + err.message);
+      setLoading(false);
+    }
+  };
+
+  const handleUpdateResult = (id, field, value) => {
+    setAiResults(prev => prev.map(r =>
+      r.id === id ? { ...r, [field]: parseFloat(value) || 0 } : r
+    ));
+  };
+
+  const handleDeleteResult = (id) => {
+    setAiResults(prev => prev.filter(r => r.id !== id));
+  };
+
+  const handleSaveAll = () => {
+    onComplete(aiResults);
+    onClose();
+  };
+
+  // モード選択画面
+  if (!mode) {
+    return (
+      <div className="modal" onClick={onClose}>
+        <div className="m-con" onClick={(e) => e.stopPropagation()}>
+          <div className="m-h">
+            <h3 className="m-title">AI入力方法を選択</h3>
+            <button className="close" onClick={onClose}>×</button>
+          </div>
+          <div className="m-body">
+            <div className="opts">
+              <div className="opt" onClick={() => setMode('image')}>
+                <div className="opt-i">📷</div>
+                <div className="opt-t">
+                  <div className="opt-title">画像のみ</div>
+                  <div className="opt-sub">写真から自動推定</div>
+                </div>
+              </div>
+              <div className="opt" onClick={() => setMode('text')}>
+                <div className="opt-i">✏️</div>
+                <div className="opt-t">
+                  <div className="opt-title">テキストのみ</div>
+                  <div className="opt-sub">食材名を入力</div>
+                </div>
+              </div>
+              <div className="opt" onClick={() => setMode('both')}>
+                <div className="opt-i">📷✏️</div>
+                <div className="opt-t">
+                  <div className="opt-title">両方</div>
+                  <div className="opt-sub">写真 + 補足情報</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // 入力画面
+  return (
+    <div className="modal" onClick={onClose}>
+      <div className="m-con" onClick={(e) => e.stopPropagation()}>
+        <div className="m-h">
+          <h3 className="m-title">
+            {mode === 'image' ? '📷 画像から推定' : mode === 'text' ? '✏️ テキストから推定' : '📷✏️ 画像+テキストから推定'}
+          </h3>
+          <button className="close" onClick={onClose}>×</button>
+        </div>
+        <div className="m-body">
+          {!aiResults ? (
+            <>
+              {error && <div className="err">{error}</div>}
+              
+              {(mode === 'image' || mode === 'both') && (
+                <>
+                  <input
+                    ref={fileInputRef}
+                    type="file"
+                    accept="image/*"
+                    onChange={handleImageSelect}
+                    style={{ display: 'none' }}
+                  />
+                  <div
+                    className={`img-up ${imagePreview ? 'has' : ''}`}
+                    onClick={() => fileInputRef.current?.click()}
+                  >
+                    {imagePreview ? (
+                      <img src={imagePreview} alt="Preview" className="prev" />
+                    ) : (
+                      <div className="up-ph">
+                        <div className="up-i">📷</div>
+                        <div>写真を追加</div>
+                      </div>
+                    )}
+                  </div>
+                </>
+              )}
+
+              {(mode === 'text' || mode === 'both') && (
+                <div className="inp">
+                  <label>{mode === 'both' ? '補足情報' : '食材名'}</label>
+                  <textarea
+                    value={textInput}
+                    onChange={(e) => setTextInput(e.target.value)}
+                    placeholder={mode === 'both' ? '例: 大盛り、トッピング追加' : '例: カレーライス大盛り、サラダ'}
+                  />
+                </div>
+              )}
+
+              {loading ? (
+                <div className="load">
+                  <div className="spin">⏳</div>
+                  <div>分析中...</div>
+                </div>
+              ) : (
+                <button className="btn" onClick={handleAIAnalysis}>
+                  分析
+                </button>
+              )}
+              <button
+                className="btn"
+                style={{ background: '#fff', color: '#111', border: '1px solid #e5e7eb', marginTop: '12px' }}
+                onClick={() => setMode(null)}
+              >
+                ← 戻る
+              </button>
+            </>
+          ) : (
+            <>
+              <h4 style={{ fontSize: '14px', fontWeight: '500', marginBottom: '16px' }}>
+                確認・編集
+              </h4>
+              <div className="ai-list">
+                {aiResults.map(result => (
+                  <div key={result.id} className="ai-item">
+                    <div className="ai-h">
+                      <div className="ai-n">{result.foodName}</div>
+                      <button
+                        className="del"
+                        style={{ padding: '4px 8px', fontSize: '11px' }}
+                        onClick={() => handleDeleteResult(result.id)}
+                      >
+                        削除
+                      </button>
+                    </div>
+                    <div className="ai-nu">
+                      {['calories', 'protein', 'fat', 'carbs'].map(field => (
+                        <div key={field} className="nf">
+                          <label>
+                            {{
+                              calories: 'カロリー',
+                              protein: 'たんぱく質',
+                              fat: '脂質',
+                              carbs: '炭水化物'
+                            }[field]}
+                          </label>
+                          <input
+                            type="number"
+                            value={result[field]}
+                            onChange={(e) => handleUpdateResult(result.id, field, e.target.value)}
+                          />
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <button className="btn" onClick={handleSaveAll}>保存</button>
+              <button
+                className="btn"
+                style={{ background: '#fff', color: '#111', border: '1px solid #e5e7eb', marginTop: '12px' }}
+                onClick={() => setAiResults(null)}
+              >
+                やり直し
+              </button>
+            </>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+// グラフ画面
+const GraphScreen = () => {
+  const [period, setPeriod] = useState('7d');
+  const chartRefs = useRef({});
+  const chartInstances = useRef({});
+
+  useEffect(() => {
+    renderCharts();
+    return () => {
+      Object.values(chartInstances.current).forEach(chart => chart?.destroy());
+    };
+  }, [period]);
+
+  const getDateRange = () => {
+    const summaries = load('dailySummary') || [];
+    if (!summaries.length) return [];
+    
+    const allDates = summaries.map(s => s.date).sort();
+    
+    switch (period) {
+      case 'all':
+        return allDates;
+      case '7d':
+        return Array.from({ length: 7 }, (_, i) => {
+          const d = new Date();
+          d.setDate(d.getDate() - (6 - i));
+          return d.toISOString().split('T')[0];
+        });
+      case '30d':
+        return Array.from({ length: 30 }, (_, i) => {
+          const d = new Date();
+          d.setDate(d.getDate() - (29 - i));
+          return d.toISOString().split('T')[0];
+        });
+      case '90d':
+        return Array.from({ length: 90 }, (_, i) => {
+          const d = new Date();
+          d.setDate(d.getDate() - (89 - i));
+          return d.toISOString().split('T')[0];
+        });
+      case '180d':
+        return Array.from({ length: 180 }, (_, i) => {
+          const d = new Date();
+          d.setDate(d.getDate() - (179 - i));
+          return d.toISOString().split('T')[0];
+        });
+      default:
+        return allDates;
+    }
+  };
+
+  const renderCharts = () => {
+    const summaries = load('dailySummary') || [];
+    const dates = getDateRange();
+    const goals = load('goals') || { calories: 2000, protein: 80 };
+    const labels = dates.map(date => {
+      const d = new Date(date);
+      return `${d.getMonth() + 1}/${d.getDate()}`;
+    });
+
+    Object.values(chartInstances.current).forEach(chart => chart?.destroy());
+
+    const charts = [
+      { id: 'calories', label: 'カロリー', color: '#10b981', goal: goals.calories, field: 'totalCalories', unit: 'kcal', divisor: 1 },
+      { id: 'protein', label: 'たんぱく質', color: '#2563eb', goal: goals.protein, field: 'totalProtein', unit: 'g', divisor: 1 },
+      { id: 'steps', label: '歩数', color: '#8b5cf6', goal: null, field: 'steps', unit: '千歩', divisor: 1000 },
+      { id: 'sleep', label: '睡眠時間', color: '#f59e0b', goal: null, field: 'sleepHours', unit: '時間', divisor: 1 },
+      { id: 'weight', label: '体重', color: '#ef4444', goal: null, field: 'weight', unit: 'kg', divisor: 1 }
+    ];
+
+    charts.forEach(chart => {
+      const data = dates.map(date => {
+        const summary = summaries.find(s => s.date === date);
+        if (!summary) return null;
+        const value = summary[chart.field];
+        if (value === null || value === undefined || value === 0) return null;
+        
+        // 異常値チェック
+        if (chart.field === 'sleepHours' && value > 24) return null;
+        if (chart.field === 'steps' && value > 100000) return null;
+        if (chart.field === 'weight' && (value < 20 || value > 300)) return null;
+        
+        return value / chart.divisor;
+      });
+
+      if (chartRefs.current[chart.id]) {
+        const ctx = chartRefs.current[chart.id].getContext('2d');
+        const datasets = [{
+          label: chart.label,
+          data: data,
+          borderColor: chart.color,
+          backgroundColor: `${chart.color}1a`,
+          borderWidth: 2,
+          tension: 0.4,
+          fill: true,
+          spanGaps: false,
+          pointRadius: 3,
+          pointHoverRadius: 5
+        }];
+
+        if (chart.goal) {
+          datasets.push({
+            label: '目標',
+            data: Array(dates.length).fill(chart.goal / chart.divisor),
+            borderColor: '#d1d5db',
+            borderWidth: 1,
+            borderDash: [4, 4],
+            pointRadius: 0,
+            fill: false
+          });
+        }
+
+        chartInstances.current[chart.id] = new Chart(ctx, {
+          type: 'line',
+          data: { labels, datasets },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: false }
+            },
+            scales: {
+              y: {
+                beginAtZero: true,
+                grid: { color: '#f3f4f6', drawBorder: false },
+                ticks: { color: '#9CA3AF', font: { size: 11 } }
+              },
+              x: {
+                grid: { display: false },
+                ticks: { color: '#9CA3AF', font: { size: 11 } }
+              }
+            }
+          }
+        });
+      }
+    });
+  };
+
+  const calculateStats = (field, divisor = 1) => {
+    const summaries = load('dailySummary') || [];
+    const dates = getDateRange();
+    const values = [];
+    
+    dates.forEach(date => {
+      const s = summaries.find(x => x.date === date);
+      if (s) {
+        const value = s[field];
+        if (value !== null && value !== undefined && value > 0) {
+          // 異常値チェック
+          if (field === 'sleepHours' && value > 24) return;
+          if (field === 'steps' && value > 100000) return;
+          if (field === 'weight' && (value < 20 || value > 300)) return;
+          values.push(value / divisor);
+        }
+      }
+    });
+    
+    if (values.length === 0) return 0;
+    const avg = values.reduce((a, b) => a + b, 0) / values.length;
+    return Math.round(avg * 10) / 10;
+  };
+
+  return (
+    <>
+      <div className="header">
+        <div className="title">グラフ</div>
+      </div>
+      <div className="graph">
+        <div className="per">
+          {[
+            { id: '7d', label: '7日' },
+            { id: '30d', label: '30日' },
+            { id: '90d', label: '3ヶ月' },
+            { id: '180d', label: '6ヶ月' },
+            { id: 'all', label: '全期間' }
+          ].map(p => (
+            <button
+              key={p.id}
+              className={`per-btn ${period === p.id ? 'act' : ''}`}
+              onClick={() => setPeriod(p.id)}
+            >
+              {p.label}
+            </button>
+          ))}
+        </div>
+        
+        {[
+          { id: 'calories', title: '🔥 カロリー', field: 'totalCalories', unit: 'kcal', hasGoal: true, divisor: 1 },
+          { id: 'protein', title: '🥩 たんぱく質', field: 'totalProtein', unit: 'g', hasGoal: true, divisor: 1 },
+          { id: 'steps', title: '👟 歩数', field: 'steps', unit: '千歩', hasGoal: false, divisor: 1000 },
+          { id: 'sleep', title: '😴 睡眠時間', field: 'sleepHours', unit: '時間', hasGoal: false, divisor: 1 },
+          { id: 'weight', title: '⚖️ 体重', field: 'weight', unit: 'kg', hasGoal: false, divisor: 1 }
+        ].map(chart => {
+          const avg = calculateStats(chart.field, chart.divisor);
+          const goals = load('goals') || { calories: 2000, protein: 80 };
+          
+          return (
+            <div key={chart.id} className="g-card">
+              <div className="g-title">{chart.title}</div>
+              <div className="g-con">
+                <canvas ref={el => chartRefs.current[chart.id] = el}></canvas>
+              </div>
+              <div className="g-sum">
+                <div className="sum-i">
+                  <div className="sum-l">平均</div>
+                  <div className="sum-v">{avg} {chart.unit}</div>
+                </div>
+                {chart.hasGoal && (
+                  <div className="sum-i">
+                    <div className="sum-l">目標</div>
+                    <div className="sum-v">
+                      {goals[chart.id === 'calories' ? 'calories' : 'protein']} {chart.unit}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </>
+  );
+};
+
+// メインアプリ
+const App = () => {
+  const [initialized, setInitialized] = useState(false);
+  const [activeTab, setActiveTab] = useState('dashboard');
+
+  useEffect(() => {
+    if (load('isSetupComplete')) {
+      setInitialized(true);
+    }
+  }, []);
+
+  if (!initialized) {
+    return <UploadScreen onComplete={() => setInitialized(true)} />;
+  }
+
+  return (
+    <div className="app">
+      {activeTab === 'dashboard' && <Dashboard onNavigate={setActiveTab} />}
+      {activeTab === 'meals' && <MealRecords onNavigate={setActiveTab} />}
+      {activeTab === 'graph' && <GraphScreen />}
+      <div className="nav">
+        {[
+          { id: 'dashboard', label: 'ホーム' },
+          { id: 'graph', label: 'グラフ' }
+        ].map(tab => (
+          <button
+            key={tab.id}
+            className={`tab ${activeTab === tab.id ? 'act' : ''}`}
+            onClick={() => setActiveTab(tab.id)}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>
